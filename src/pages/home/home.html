@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Holidays
+      Holidays Booked
     </ion-title>
     <ion-buttons end>
       <button ion-button (click)="showDetail()">
@@ -11,11 +11,44 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="home">
-  <ion-list inset>
-    <ion-item *ngFor="let holiday of holidays | async" (click)="showDetail(holiday)">
-      <div item-left>{{ holiday.Name }}</div>
-      <div item-right>{{ holiday.Date | date: 'yMMMMd' }}</div>
+<ion-content class="cards-bg">
+    <ion-card *ngFor="let holiday of holidays | async" (click)="showDetail(holiday)">
+    <ion-card-content>
+  <ion-list>
+    <ion-item>
+      <div item-left>{{ holiday.Description }}</div>
+      <div item-right>{{ holiday.StartDate | date: 'yMMMd' }}</div>
     </ion-item>
   </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+
+<ion-card class="summary">
+    <ion-card-content>
+      <h1>Summary</h1>
+
+        <ion-row center>
+        <ion-col>Total Days for Year: </ion-col>
+        <ion-col><div>{{totalDays}}</div></ion-col>
+      </ion-row>
+
+      <ion-row center>
+        <ion-col>Days Booked: </ion-col>
+        <ion-col><div>{{daysBooked}}</div></ion-col>
+      </ion-row>
+
+      <ion-row center>
+        <ion-col>Days Available: </ion-col>
+        <ion-col><div>{{daysAvailable}}</div></ion-col>
+      </ion-row>
+
+      <ion-row center>
+        <ion-col>Days Taken: </ion-col>
+        <ion-col><div>{{daysTaken}}</div></ion-col>
+      </ion-row>
+      </ion-card-content>
+  </ion-card>
+
+
 </ion-content>

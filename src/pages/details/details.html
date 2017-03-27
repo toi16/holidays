@@ -9,16 +9,33 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="details">
-  <ion-list>
-    <ion-item>
-      <ion-label>Name</ion-label>
-      <ion-input text-right type="text" [(ngModel)]="holiday.Name"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Holiday</ion-label>
-      <ion-datetime displayFormat="MMMM D, YYYY" pickerFormat="MMMM D YYYY" [(ngModel)]="isoDate"></ion-datetime>
-    </ion-item>
-  </ion-list>
-  <button ion-button block (click)="save()">Save</button>
+<ion-content class="cards-bg">
+  <ion-card>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Start Date</ion-label>
+          <ion-datetime displayFormat="MMMM D, YYYY" pickerFormat="MMMM D YYYY" [(ngModel)]="isoSDate"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label>End Date</ion-label>
+          <ion-datetime displayFormat="MMMM D, YYYY" pickerFormat="MMMM D YYYY" [(ngModel)]="isoEDate"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label>Approved</ion-label>
+          <ion-toggle color="secondary" [(ngModel)]="holiday.Approved"></ion-toggle>
+        </ion-item>
+        <ion-item>
+          <ion-label>Days Taken</ion-label>
+          <ion-input text-right type="number" [(ngModel)]="holiday.HolDays"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Description</ion-label>
+          <ion-input text-right type="text" [(ngModel)]="holiday.Description"></ion-input>
+        </ion-item>
+      </ion-list>
+      <button ion-button block (click)="save()">Save</button>
+      <button ion-button block (click)="dismiss()">Close</button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

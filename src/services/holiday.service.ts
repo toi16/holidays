@@ -13,7 +13,7 @@ private db;
   initDB() : Promise<any> {
     return this.platform.ready()
                         .then(() => {
-                          this.db = new PouchDB('holiday');
+                          this.db = new PouchDB('holiday2');
                         });
   }
 
@@ -37,7 +37,7 @@ private db;
           })
           .then(docs => {
             return docs.rows.map((row) => {
-              row.doc.StertDate = new Date(row.doc.StartDate); //convert string to date
+              row.doc.StartDate = new Date(row.doc.StartDate); //convert string to date
               row.doc.EndDate = new Date(row.doc.EndDate); //convert string to date
               return row.doc;
             });
