@@ -1,6 +1,6 @@
 {
-  "name": "ionic-hello-world",
-  "author": "Ionic Framework",
+  "name": "holidays",
+  "author": "Matthew Howard",
   "homepage": "http://ionicframework.com/",
   "private": true,
   "scripts": {
@@ -47,5 +47,5 @@
     "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [],
-  "description": "ionic2ngrx: An Ionic project"
+  "description": "holidays: An Ionic project"
 }

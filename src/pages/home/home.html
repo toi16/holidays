@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Birthdays
+      Holidays
     </ion-title>
     <ion-buttons end>
       <button ion-button (click)="showDetail()">
@@ -13,9 +13,9 @@
 
 <ion-content class="home">
   <ion-list inset>
-    <ion-item *ngFor="let birthday of birthdays | async" (click)="showDetail(birthday)">
-      <div item-left>{{ birthday.Name }}</div>
-      <div item-right>{{ birthday.Date | date: 'yMMMMd' }}</div>
+    <ion-item *ngFor="let holiday of holidays | async" (click)="showDetail(holiday)">
+      <div item-left>{{ holiday.Name }}</div>
+      <div item-right>{{ holiday.Date | date: 'yMMMMd' }}</div>
     </ion-item>
   </ion-list>
 </ion-content>

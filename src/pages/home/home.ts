@@ -3,7 +3,7 @@ import { ModalController, NavController } from 'ionic-angular';
 import { Store} from '@ngrx/store';
 import { Observable } from 'rxjs/rx';
 import { AppState } from '../../services/app-state';
-import { Birthday } from '../../models/birthday';
+import { Holiday } from '../../models/holiday';
 import { DetailsPage } from '../details/details';
 
 @Component({
@@ -12,18 +12,18 @@ import { DetailsPage } from '../details/details';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomePage {
-  public birthdays: Observable<Birthday[]>;
+  public holidays: Observable<Holiday[]>;
 
   constructor(
     private nav: NavController,
     private store: Store<AppState>,
     private modalCtrl: ModalController) {
 
-    this.birthdays = this.store.select(state => state.birthdays);
+    this.holidays = this.store.select(state => state.holidays);
   }
 
-  showDetail(birthday) {
-    let modal = this.modalCtrl.create(DetailsPage, {birthday: birthday});
+  showDetail(holiday) {
+    let modal = this.modalCtrl.create(DetailsPage, {holiday: holiday});
     modal.present();
   }
 }

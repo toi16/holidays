@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{ action }} Birthday</ion-title>
+    <ion-title>{{ action }} Holiday</ion-title>
     <ion-buttons end *ngIf="!isNew">
       <button ion-button (click)="delete()">
         <ion-icon name="trash"></ion-icon>
@@ -13,10 +13,10 @@
   <ion-list>
     <ion-item>
       <ion-label>Name</ion-label>
-      <ion-input text-right type="text" [(ngModel)]="birthday.Name"></ion-input>
+      <ion-input text-right type="text" [(ngModel)]="holiday.Name"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Birthday</ion-label>
+      <ion-label>Holiday</ion-label>
       <ion-datetime displayFormat="MMMM D, YYYY" pickerFormat="MMMM D YYYY" [(ngModel)]="isoDate"></ion-datetime>
     </ion-item>
   </ion-list>

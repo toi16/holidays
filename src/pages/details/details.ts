@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { NavParams, ViewController } from 'ionic-angular';
 import { Store} from '@ngrx/store';
 import { AppState } from '../../services/app-state';
-import { BirthdayActions } from '../../actions/birthday.actions';
+import { HolidayActions } from '../../actions/holiday.actions';
 
 @Component({
   selector: 'page-details',
   templateUrl: 'details.html'
 })
 export class DetailsPage {
-  public birthday: any = {};
+  public holiday: any = {};
   public isNew = true;
   public action = 'Add';
   public isoDate = '';
@@ -18,39 +18,39 @@ export class DetailsPage {
     private viewCtrl: ViewController,
     private navParams: NavParams,
     private store: Store<AppState>,
-    private birthdayActions: BirthdayActions) {
+    private holidayActions: HolidayActions) {
   }
 
   ionViewWillEnter() {
-    let editBirthday = this.navParams.get('birthday');
+    let editHoliday = this.navParams.get('holiday');
 
-    if (editBirthday) {
-      this.birthday = editBirthday;
+    if (editHoliday) {
+      this.holiday = editHoliday;
       this.isNew = false;
       this.action = 'Edit';
-      this.isoDate = this.birthday.Date.toISOString().slice(0, 10);
+      this.isoDate = this.holiday.Date.toISOString().slice(0, 10);
     }
   }
 
   save() {
-    this.birthday.Date = new Date(this.isoDate);
+    this.holiday.Date = new Date(this.isoDate);
 
     if (this.isNew) {
-      this.store.dispatch(this.birthdayActions.addBirthday(this.birthday));
+      this.store.dispatch(this.holidayActions.addHoliday(this.holiday));
     }
     else {
-      this.store.dispatch(this.birthdayActions.updateBirthday(this.birthday));
+      this.store.dispatch(this.holidayActions.updateHoliday(this.holiday));
     }
 
     this.dismiss();
   }
 
   delete() {
-    this.store.dispatch(this.birthdayActions.deleteBirthday(this.birthday));
+    this.store.dispatch(this.holidayActions.deleteHoliday(this.holiday));
     this.dismiss();
   }
 
   dismiss() {
-    this.viewCtrl.dismiss(this.birthday);
+    this.viewCtrl.dismiss(this.holiday);
   }
 }
