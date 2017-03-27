@@ -1,5 +1,5 @@
-import {Birthday} from '../models/birthday';
+import {Holiday} from '../models/holiday';
 
 export interface AppState {
-  birthdays: Birthday[];
+  holidays: Holiday[];
 }
