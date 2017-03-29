@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/rx';
 import { AppState } from '../../services/app-state';
 import { Holiday } from '../../models/holiday';
 import { DetailsPage } from '../details/details';
+import { SettingsPage } from '../settings/settings';
 
 @Component({
   selector: 'page-home',
@@ -25,5 +26,10 @@ export class HomePage {
   showDetail(holiday) {
     let modal = this.modalCtrl.create(DetailsPage, {holiday: holiday});
     modal.present();
+  }
+
+  showSetting(holiday) {
+    let modal2 = this.modalCtrl.create(SettingsPage, {holiday: holiday});
+    modal2.present();
   }
 }

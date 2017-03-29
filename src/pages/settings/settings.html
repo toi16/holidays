@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{ action }} Holiday</ion-title>
+    <ion-title>Holiday Settings</ion-title>
     
   </ion-navbar>
 </ion-header>
@@ -10,24 +10,24 @@
     <ion-card-content>
       <ion-list>
         <ion-item>
-          <ion-label>Start Date</ion-label>
+          <ion-label>Year Start Date</ion-label>
           <ion-datetime displayFormat="MMMM D, YYYY" pickerFormat="MMMM D YYYY" [(ngModel)]="isoSDate"></ion-datetime>
         </ion-item>
         <ion-item>
-          <ion-label>End Date</ion-label>
+          <ion-label>Year End Date</ion-label>
           <ion-datetime displayFormat="MMMM D, YYYY" pickerFormat="MMMM D YYYY" [(ngModel)]="isoEDate"></ion-datetime>
         </ion-item>
         <ion-item>
-          <ion-label>Approved</ion-label>
+          <ion-label>Bank Hols included</ion-label>
           <ion-toggle color="secondary" [(ngModel)]="holiday.Approved"></ion-toggle>
         </ion-item>
         <ion-item>
-          <ion-label>Days Taken</ion-label>
+          <ion-label>Holiday Entitlement</ion-label>
           <ion-input text-right type="number" [(ngModel)]="holiday.HolDays"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label>Description</ion-label>
-          <ion-input text-right type="text" [(ngModel)]="holiday.Description"></ion-input>
+          <ion-label>Bank Hol Days</ion-label>
+          <ion-input text-right type="number" [(ngModel)]="holiday.Description"></ion-input>
         </ion-item>
       </ion-list>
       <button ion-button block (click)="save()">Save</button>
@@ -36,15 +36,3 @@
   </ion-card>
 </ion-content>
 
-<ion-footer>
-  <ion-toolbar>
-    <p>
-    <ion-buttons end *ngIf="!isNew">
-      <button ion-button outline icon-left (click)="delete()">
-        <ion-icon name="trash"></ion-icon>
-        Delete
-      </button>
-    </ion-buttons>
-   </p>
- </ion-toolbar>
-</ion-footer>

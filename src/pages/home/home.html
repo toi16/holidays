@@ -3,11 +3,6 @@
     <ion-title>
       Holidays Booked
     </ion-title>
-    <ion-buttons end>
-      <button ion-button (click)="showDetail()">
-        <ion-icon name="add-circle"></ion-icon>Add
-      </button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -52,4 +47,19 @@
 
 
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <p>
+    <button  ion-button outline icon-left (click)="showDetail()">
+      <ion-icon name='add' is-active="false"></ion-icon>
+      Add Holiday
+    </button>
+    <button ion-button outline icon-left (click)="showSetting()">
+      <ion-icon name='cog' is-active="false"></ion-icon>
+      Settings
+    </button>
+   </p>
+ </ion-toolbar>
+</ion-footer>
 
