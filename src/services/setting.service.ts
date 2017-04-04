@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { Observable } from 'rxjs/Rx';
-import { Holiday } from '../models/holiday';
+import { Setting } from '../models/settings';
 import PouchDB from 'pouchdb';
 
 @Injectable()
-export class HolidayService {
+export class SettingService {
 private db;
 
   constructor(private platform: Platform) { }
@@ -13,20 +13,16 @@ private db;
   initDB() : Promise<any> {
     return this.platform.ready()
                         .then(() => {
-                          this.db = new PouchDB('holiday');
+                          this.db = new PouchDB('appset');
                         });
   }
 
-  add(holiday: Holiday) : Promise<any> {
-    return this.db.post(holiday);
+  add(setting: Setting) : Promise<any> {
+    return this.db.post(setting);
   }
 
-  update(holiday: Holiday) : Promise<any> {
-    return this.db.put(holiday);
-  }
-
-  delete(holiday: Holiday) : Promise<any> {
-    return this.db.remove(holiday);
+  update(setting: Setting) : Promise<any> {
+    return this.db.put(setting);
   }
 
   getAll() : Observable<any> {
